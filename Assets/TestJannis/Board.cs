@@ -6,6 +6,8 @@ public class Board : MonoBehaviour
 {
     Rigidbody rb;
 
+    float angle = 15f;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -18,11 +20,12 @@ public class Board : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.rotation = Quaternion.Euler(15f * Input.GetAxis("Vertical"), 0f, -15f * Input.GetAxis("Horizontal"));
+        // Edit->Project Settings->Input Manager->Axis->Horizontal/Vertical->Snap deaktivieren fuer fluessige Bewegung
+        rb.rotation = Quaternion.Euler(angle * Input.GetAxis("Vertical"), 0f, -angle * Input.GetAxis("Horizontal"));
     }
 
     void Update()
     {
-        
+
     }
 }
