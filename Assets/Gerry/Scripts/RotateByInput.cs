@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RotateByInput : MonoBehaviour
 {
-    [SerializeField] private float speed;
+    [SerializeField] private float angle;
 
     private Rigidbody _rb;
     
@@ -15,7 +15,21 @@ public class RotateByInput : MonoBehaviour
     
     private void FixedUpdate()
     {
-        var vel = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
-        _rb.MoveRotation(Quaternion.Euler(vel * speed * Time.deltaTime));
+        if (!Input.GetMouseButton(0)) return;
+        
+        //var vel = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
+        var p = Input.mousePosition;
+        //p.y *= -1f;
+        //p.x = Mathf.Clamp(p.x, -angle, angle);
+        //p.y = Mathf.Clamp(p.y, -angle, angle);
+        p.z = p.y;
+        p.y = 0f;
+        var vel = Camera.main.ScreenToWorldPoint(p);
+        var xTemp = vel.x;
+        vel.x = vel.z;
+        vel.z = xTemp;
+        vel.y = 0f;
+        Debug.Log(vel);
+        _rb.MoveRotation(Quaternion.Euler(vel * angle));
     }
 }
