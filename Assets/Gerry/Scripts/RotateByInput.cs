@@ -25,8 +25,8 @@ public class RotateByInput : MonoBehaviour
         p.z = p.y;
         p.y = 0f;
         var vel = Camera.main.ScreenToWorldPoint(p);
-        var xTemp = vel.x;
-        vel.x = vel.z;
+        var xTemp = vel.x / (Screen.height) - Screen.height * 0.5f;
+        vel.x = vel.z / Screen.width;
         vel.z = xTemp;
         vel.y = 0f;
         Debug.Log(vel);
