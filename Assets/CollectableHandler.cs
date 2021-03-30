@@ -26,6 +26,7 @@ public class CollectableHandler : MonoBehaviour
 
         var instance = Instantiate(_particles, transform.position, Quaternion.identity);
         instance.transform.eulerAngles = Vector3.left * 90f;
+        Events.OnCollectableCollected();
         _animator.SetBool("destroy", true);
     }
 }
