@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BoardController : MonoBehaviour
+public class MazeController : MonoBehaviour
 {
     [SerializeField] private int rotationSpeed;
     [SerializeField] private int maxAngle;
