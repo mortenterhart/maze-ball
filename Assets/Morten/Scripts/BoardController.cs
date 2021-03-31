@@ -26,25 +26,27 @@ public class BoardController : MonoBehaviour
         angles.z -= horizontalRot;
         angles.x += verticalRot;
 
-        /*if (angles.z < -maxAngle)
+        if (angles.x > maxAngle && angles.x <= 180f)
         {
-            angles.z = -maxAngle;
+            angles.x = maxAngle;
         }
 
-        if (angles.z > maxAngle)
+        if (angles.x < 360f - maxAngle && angles.x > 180f)
+        {
+            angles.x = 360f - maxAngle;
+        }
+
+        if (angles.z > maxAngle && angles.z <= 180f)
         {
             angles.z = maxAngle;
         }
 
-        if (angles.x < -maxAngle)
+        if (angles.z < 360f - maxAngle && angles.z > 180f)
         {
-            angles.x = -maxAngle;
+            angles.z = 360f - maxAngle;
         }
 
-        if (angles.x > maxAngle)
-        {
-            angles.x = maxAngle;
-        }*/
+        Debug.Log($"angles: x = {angles.x}, z = {angles.z}");
 
         _rb.MoveRotation(Quaternion.Euler(angles));
     }
