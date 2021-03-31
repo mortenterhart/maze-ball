@@ -46,8 +46,6 @@ public class BoardController : MonoBehaviour
             angles.z = 360f - maxAngle;
         }
 
-        Debug.Log($"angles: x = {angles.x}, z = {angles.z}");
-
         _rb.MoveRotation(Quaternion.Euler(angles));
     }
 }
