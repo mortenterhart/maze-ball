@@ -1,51 +1,61 @@
 using UnityEngine;
 
-public class MazeController : MonoBehaviour
+namespace Morten.Scripts
 {
-    [SerializeField] private int rotationSpeed;
-    [SerializeField] private int maxAngle;
-
-    private Rigidbody _rb;
-
-    private void Awake()
+    public class MazeController : MonoBehaviour
     {
-        _rb = GetComponent<Rigidbody>();
-    }
+        [SerializeField] private int rotationSpeed;
+        [SerializeField] private int maxAngle;
 
-    private void FixedUpdate()
-    {
-        RotateBoard();
-    }
+        private Rigidbody _rb;
 
-    private void RotateBoard()
-    {
-        var horizontalRot = Input.GetAxisRaw("Horizontal") * rotationSpeed * Time.fixedDeltaTime;
-        var verticalRot = Input.GetAxisRaw("Vertical") * rotationSpeed * Time.fixedDeltaTime;
-
-        var angles = transform.rotation.eulerAngles;
-        angles.z -= horizontalRot;
-        angles.x += verticalRot;
-
-        if (angles.x > maxAngle && angles.x <= 180f)
+        private void Awake()
         {
-            angles.x = maxAngle;
+            _rb = GetComponent<Rigidbody>();
         }
 
-        if (angles.x < 360f - maxAngle && angles.x > 180f)
+        private void FixedUpdate()
         {
-            angles.x = 360f - maxAngle;
+            RotateBoard();
         }
 
-        if (angles.z > maxAngle && angles.z <= 180f)
+        private void RotateBoard()
         {
-            angles.z = maxAngle;
+            var horizontalRot = Input.GetAxisRaw("Horizontal") * rotationSpeed *
+                                Time.fixedDeltaTime;
+            var verticalRot = Input.GetAxisRaw("Vertical") * rotationSpeed *
+                              Time.fixedDeltaTime;
+
+            var angles = transform.rotation.eulerAngles;
+            angles.z -= horizontalRot;
+            angles.x += verticalRot;
+
+            if (angles.x > maxAngle && angles.x <= 180f)
+            {
+                angles.x = maxAngle;
+            }
+
+            if (angles.x < 360f - maxAngle && angles.x > 180f)
+            {
+                angles.x = 360f - maxAngle;
+            }
+
+            if (angles.z > maxAngle && angles.z <= 180f)
+            {
+                angles.z = maxAngle;
+            }
+
+            if (angles.z < 360f - maxAngle && angles.z > 180f)
+            {
+                angles.z = 360f - maxAngle;
+            }
+
+            _rb.MoveRotation(Quaternion.Euler(angles));
         }
 
-        if (angles.z < 360f - maxAngle && angles.z > 180f)
+        public void ResetRotation()
         {
-            angles.z = 360f - maxAngle;
+            transform.rotation = Quaternion.identity;
         }
-
-        _rb.MoveRotation(Quaternion.Euler(angles));
     }
 }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Morten.Scripts
 {
-    public class HoleTrigger : MonoBehaviour
+    public class FinishTrigger : MonoBehaviour
     {
         [SerializeField] private GameObject respawnPoint;
 
@@ -19,6 +19,7 @@ namespace Morten.Scripts
         {
             if (other.CompareTag("Player"))
             {
+                _timer.Stop();
                 _mazeController.ResetRotation();
 
                 var playerRb = other.GetComponent<Rigidbody>();

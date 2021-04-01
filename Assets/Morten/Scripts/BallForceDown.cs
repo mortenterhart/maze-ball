@@ -1,18 +1,21 @@
 using UnityEngine;
 
-public class BallForceDown : MonoBehaviour
+namespace Morten.Scripts
 {
-    [SerializeField] private float forceDown;
-
-    private Rigidbody _rb;
-
-    private void Awake()
+    public class BallForceDown : MonoBehaviour
     {
-        _rb = GetComponent<Rigidbody>();
-    }
+        [SerializeField] private float forceDown;
 
-    private void FixedUpdate()
-    {
-        _rb.AddForce(0, forceDown, 0);
+        private Rigidbody _rb;
+
+        private void Awake()
+        {
+            _rb = GetComponent<Rigidbody>();
+        }
+
+        private void FixedUpdate()
+        {
+            _rb.AddForce(0, forceDown, 0);
+        }
     }
 }
