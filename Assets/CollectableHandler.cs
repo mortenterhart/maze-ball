@@ -1,11 +1,8 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CollectableHandler : MonoBehaviour
 {
-    [SerializeField] private ParticleSystem _particles;
+    [SerializeField] private ParticleSystem particles;
     private Animator _animator;
     public bool destroy;
 
@@ -24,9 +21,10 @@ public class CollectableHandler : MonoBehaviour
     {
         if (!other.CompareTag("Player")) return;
 
-        var instance = Instantiate(_particles, transform.position, Quaternion.identity);
+        var instance = Instantiate(particles, transform.position, Quaternion.identity);
         instance.transform.eulerAngles = Vector3.left * 90f;
         Events.OnCollectableCollected();
+        Events.OnPlayCollectableSfx();
         _animator.SetBool("destroy", true);
     }
 }

@@ -24,4 +24,10 @@ public class Events : MonoBehaviour
     {
         CollectableCollected?.Invoke();
     }
+
+    public static event Action PlayCollectableSfx;
+    public static void OnPlayCollectableSfx()
+    {
+        PlayCollectableSfx?.Invoke();
+    }
 }
