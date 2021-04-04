@@ -1,0 +1,34 @@
+﻿name: Unity Build
+
+on: [push, pull_request]
+
+jobs:
+  buildWebGL:
+    name: Build for ${{ matrix.targetPlatform }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        targetPlatform:
+          - StandaloneWindows64
+          - WebGL
+    steps:
+      - uses: actions/cache@v2
+        with:
+          path: Library
+          key: Library-MazeBall
+          restore-keys: |
+            Library-MazeBall-
+            Library-
+    
+      - uses: game-ci/unity-builder@v2.0-alpha-6
+        name: Unity Builder
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+        with:
+          unityVersion: auto
+          targetPlatform: ${{ matrix.targetPlatform }}
+          
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Build-${{ matrix.targetPlatform }}
+          path: build/${{ matrix.targetPlatform }}
