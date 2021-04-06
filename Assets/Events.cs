@@ -30,4 +30,10 @@ public class Events : MonoBehaviour
     {
         PlayCollectableSfx?.Invoke();
     }
+
+    public static event Action SwitchTriggered;
+    public static void OnSwitchTriggered()
+    {
+        SwitchTriggered?.Invoke();
+    }
 }
