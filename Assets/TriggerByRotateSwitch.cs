@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TriggerBySwitch : MonoBehaviour
+public class TriggerByRotateSwitch : MonoBehaviour
 {
     private Animator _animator;
     
@@ -11,10 +11,10 @@ public class TriggerBySwitch : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         
-        Events.SwitchTriggered += EventsOnSwitchTriggered;
+        Events.RotateSwitchTriggered += EventsOnRotateSwitchTriggered;
     }
 
-    private void EventsOnSwitchTriggered()
+    private void EventsOnRotateSwitchTriggered()
     {
         _animator.SetTrigger("rotate");
     }

@@ -10,9 +10,9 @@ namespace Gerry.Scripts
         private void FixedUpdate()
         {
             Vector3 vel;
-            vel.x = Input.GetAxis("Horizontal");
+            vel.x = Input.GetAxis("Vertical");
             vel.y = 0f;
-            vel.z = Input.GetAxis("Vertical");
+            vel.z = Input.GetAxis("Horizontal") * -1f;
 
             var transform1 = transform;
             var eulerAngles = transform1.eulerAngles;

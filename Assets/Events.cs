@@ -31,9 +31,21 @@ public class Events : MonoBehaviour
         PlayCollectableSfx?.Invoke();
     }
 
-    public static event Action SwitchTriggered;
-    public static void OnSwitchTriggered()
+    public static event Action RotateSwitchTriggered;
+    public static void OnRotateSwitchTriggered()
     {
-        SwitchTriggered?.Invoke();
+        RotateSwitchTriggered?.Invoke();
+    }
+
+    public static event Action BlueButtonTriggered;
+    public static void OnBlueButtonTriggered()
+    {
+        BlueButtonTriggered?.Invoke();
+    }
+    
+    public static event Action RedButtonTriggered;
+    public static void OnRedButtonTriggered()
+    {
+        RedButtonTriggered?.Invoke();
     }
 }
