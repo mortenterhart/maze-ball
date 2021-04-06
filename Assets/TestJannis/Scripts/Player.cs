@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] GameObject spawn;
+
     Rigidbody rb;
 
     void Awake()
@@ -18,22 +20,32 @@ public class Player : MonoBehaviour
 
     void Respawn()
     {
-        rb.position = new Vector3(-4f, 0.75f, -4f);
+        rb.position = spawn.transform.position;
         rb.rotation = Quaternion.identity;
         rb.velocity = Vector3.zero;
     }
 
-    void Jump()
+    /*void Jump()
     {
         rb.AddForce(5f * Vector3.up, ForceMode.Impulse);
-    }
+    }*/
 
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Hole"))
             Respawn();
-        else if (other.CompareTag("Bounce"))
-            Jump();
+        else if (other.CompareTag("Goal"))
+            Respawn();
+        else if (other.CompareTag("Trigger"))
+            other.GetComponent<Trigger>().Enter();
+        /*else if (other.CompareTag("Bounce"))
+            Jump();*/
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Trigger"))
+            other.GetComponent<Trigger>().Exit();
     }
 
     void Update()
