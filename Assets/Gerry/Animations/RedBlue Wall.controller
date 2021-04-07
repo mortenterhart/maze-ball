@@ -63,7 +63,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RedBlueBox Disappear
+  m_Name: RedBlueWall Disappear
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -77,7 +77,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 33194fa28e305164bba91629c4f6d490, type: 2}
+  m_Motion: {fileID: 7400000, guid: fb2c99d274b5a7244a7f5e7385d9d212, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -90,7 +90,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RedBlueBox Appear
+  m_Name: RedBlueWall Appear 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -104,7 +104,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 333aebdcfb0b08e48a58799126c1c9b2, type: 2}
+  m_Motion: {fileID: 7400000, guid: 4dd04c21350ec7d46a7a6b5521fcf893, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -194,7 +194,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RedBlue Box
+  m_Name: RedBlue Wall
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: active
@@ -202,13 +202,13 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: start
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -240,12 +240,6 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: -2779608707238054961}
     m_Position: {x: 550, y: 90, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: 8376591531475276856}
-    m_Position: {x: 585, y: 155, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: 5885336352019786264}
-    m_Position: {x: 620, y: 220, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
