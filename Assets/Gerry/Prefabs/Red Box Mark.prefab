@@ -100,7 +100,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1943202237684220517, guid: 884dd90ba9637524ebad14c23d51d1eb, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1943202237684220517, guid: 884dd90ba9637524ebad14c23d51d1eb, type: 3}
       propertyPath: m_Center.y
