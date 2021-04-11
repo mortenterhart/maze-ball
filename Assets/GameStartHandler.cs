@@ -21,6 +21,12 @@ public class GameStartHandler : MonoBehaviour
 
     public void OnNewGame()
     {
+        PlayerPrefs.SetInt("levelSave", 0);
         SceneManager.LoadScene(level1SceneIndex);
+    }
+
+    public void OnContinue()
+    {
+        SceneManager.LoadScene(PlayerPrefs.GetInt("levelSave"));
     }
 }

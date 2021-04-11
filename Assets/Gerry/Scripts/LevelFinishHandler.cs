@@ -19,6 +19,7 @@ public class LevelFinishHandler : MonoBehaviour
     private void EventsOnLevelFinishInitiated()
     {
         levelFinishText.gameObject.SetActive(true);
+        PlayerPrefs.SetInt("levelSave", nextSceneIndex);
         StartCoroutine(FinishLevel());
     }
 
