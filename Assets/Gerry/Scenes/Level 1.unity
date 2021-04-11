@@ -2727,6 +2727,10 @@ PrefabInstance:
       value: LevelFinishHandler
       objectReference: {fileID: 0}
     - target: {fileID: 6738768552319684583, guid: e38cbd5e939d40e45a485dce4b15f87a, type: 3}
+      propertyPath: nextSceneIndex
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6738768552319684583, guid: e38cbd5e939d40e45a485dce4b15f87a, type: 3}
       propertyPath: levelFinishText
       value: 
       objectReference: {fileID: 2141693745}
