@@ -48,4 +48,10 @@ public class Events : MonoBehaviour
     {
         RedButtonTriggered?.Invoke();
     }
+    
+    public static event Action LevelFinishInitiated;
+    public static void OnLevelFinishInitiated()
+    {
+        LevelFinishInitiated?.Invoke();
+    }
 }

@@ -6,7 +6,7 @@ public class BlueBoxHandler : MonoBehaviour
     private Collider _collider;
     
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         Events.BlueButtonTriggered += EventsOnBlueButtonTriggered;
         Events.RedButtonTriggered += EventsOnRedButtonTriggered;
@@ -26,5 +26,11 @@ public class BlueBoxHandler : MonoBehaviour
         _animator.SetTrigger("start");
         _animator.SetBool("active", false);
         _collider.enabled = false;
+    }
+    
+    private void OnDestroy()
+    {
+        Events.BlueButtonTriggered -= EventsOnBlueButtonTriggered;
+        Events.RedButtonTriggered -= EventsOnRedButtonTriggered;
     }
 }

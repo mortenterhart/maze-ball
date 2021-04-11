@@ -14,4 +14,9 @@ public class AudioHandler : MonoBehaviour
     {
         collectableSfx.Play();
     }
+    
+    private void OnDestroy()
+    {
+        Events.PlayCollectableSfx -= EventsOnPlayCollectableSfx;
+    }
 }

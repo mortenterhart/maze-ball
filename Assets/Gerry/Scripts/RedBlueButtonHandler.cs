@@ -37,4 +37,10 @@ public class RedBlueButtonHandler : MonoBehaviour
         else
             Events.OnRedButtonTriggered();
     }
+    
+    private void OnDestroy()
+    {
+        Events.BlueButtonTriggered -= EventsOnBlueButtonTriggered;
+        Events.RedButtonTriggered -= EventsOnRedButtonTriggered;
+    }
 }
