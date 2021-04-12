@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Morten/Scenes/MortenScene.unity
     guid: c468338aa73dc45a284f961af1f9ea72
   - enabled: 1
-    path: Assets/Common/MainMenu.unity
+    path: Assets/Common/Scenes/MainMenu.unity
     guid: 0b58651a91627844c9ec3fa2d00dcba5
   - enabled: 1
     path: Assets/Gerry/Scenes/Level 1.unity
