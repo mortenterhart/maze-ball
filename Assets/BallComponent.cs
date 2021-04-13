@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,9 +26,8 @@ public class BallComponent : MonoBehaviour
         gameObject.transform.position = _initialPos;
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnDestroy()
     {
-        
+        Events.ObstacleTrigger -= EventsOnObstacleTrigger;
     }
 }
