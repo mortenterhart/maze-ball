@@ -17,13 +17,26 @@ public class TriggerByRotateSwitch : MonoBehaviour
     [SerializeField] private Direction direction;
 
     private Animator _animator;
+    Quaternion _initialRotation;
     
     // Start is called before the first frame update
     private void Start()
     {
         _animator = GetComponent<Animator>();
+        _initialRotation = transform.rotation;
         
         Events.RotateSwitchTriggered += EventsOnRotateSwitchTriggered;
+        Events.ObstacleTrigger += EventsOnObstacleTrigger;
+    }
+
+    void EventsOnObstacleTrigger()
+    {
+        _animator.SetBool("rotateBack90", false);
+        _animator.SetBool("rotateBack-90", false);
+        _animator.ResetTrigger("rotate90");
+        _animator.ResetTrigger("rotate180");
+        _animator.ResetTrigger("rotate-90");
+        transform.rotation = _initialRotation;
     }
 
     private void EventsOnRotateSwitchTriggered()

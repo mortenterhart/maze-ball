@@ -12,8 +12,7 @@ public class GameStartHandler : MonoBehaviour
     {
         
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         

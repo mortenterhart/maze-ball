@@ -54,4 +54,10 @@ public class Events : MonoBehaviour
     {
         LevelFinishInitiated?.Invoke();
     }
+
+    public static event Action ObstacleTrigger;
+    public static void OnObstacleTrigger()
+    {
+        ObstacleTrigger?.Invoke();
+    }
 }
