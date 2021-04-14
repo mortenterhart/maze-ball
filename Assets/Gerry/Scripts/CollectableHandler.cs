@@ -4,11 +4,13 @@ public class CollectableHandler : MonoBehaviour
 {
     [SerializeField] private ParticleSystem particles;
     private Animator _animator;
+    private CapsuleCollider _cc;
     public bool destroy;
 
     private void Start()
     {
         _animator = GetComponent<Animator>();
+        _cc = GetComponent<CapsuleCollider>();
     }
 
     private void Update()
@@ -26,5 +28,6 @@ public class CollectableHandler : MonoBehaviour
         Events.OnCollectableCollected();
         Events.OnPlayCollectableSfx();
         _animator.SetBool("destroy", true);
+        _cc.enabled = false;
     }
 }
