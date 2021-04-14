@@ -4,9 +4,9 @@ namespace Gerry.Scripts
 {
     public class RotateByInput : MonoBehaviour
     {
-        [SerializeField] private float speed;
-        [SerializeField] private float moveBackSpeed = 10f;
-        [SerializeField] private float maxRotation = 30f;
+        [SerializeField] private float speed = 20f;
+        [SerializeField] private float moveBackSpeed = 1f;
+        [SerializeField] private float maxRotation = 5f;
 
         private void FixedUpdate()
         {
