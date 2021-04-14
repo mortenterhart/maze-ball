@@ -15,11 +15,11 @@ namespace Gerry.Scripts
             vel.y = 0f;
             vel.z = Input.GetAxis("Horizontal") * -1f;
 
-            if (vel.x == 0f)
+            if (Input.GetAxisRaw("Vertical") == 0f)
                 vel.x = Mathf.LerpAngle(transform.eulerAngles.x, 0f, Time.deltaTime * moveBackSpeed);
             else
                 vel.x = transform.eulerAngles.x + vel.x * speed * Time.deltaTime;
-            if (vel.z == 0f)
+            if (Input.GetAxisRaw("Horizontal") == 0f)
                 vel.z = Mathf.LerpAngle(transform.eulerAngles.z, 0f, Time.deltaTime * moveBackSpeed);
             else
                 vel.z = transform.eulerAngles.z + vel.z * speed * Time.deltaTime;
