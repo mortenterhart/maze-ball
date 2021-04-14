@@ -5,6 +5,8 @@ namespace Gerry.Scripts
     public class RotateByInput : MonoBehaviour
     {
         [SerializeField] private float speed;
+        [SerializeField] private float moveBackSpeed = 10f;
+        [SerializeField] private float maxRotation = 30f;
 
         private void FixedUpdate()
         {
@@ -13,7 +15,25 @@ namespace Gerry.Scripts
             vel.y = 0f;
             vel.z = Input.GetAxis("Horizontal") * -1f;
 
-            transform.eulerAngles = vel * speed * Time.deltaTime;
+            if (vel.x == 0f)
+                vel.x = Mathf.LerpAngle(transform.eulerAngles.x, 0f, Time.deltaTime * moveBackSpeed);
+            else
+                vel.x = transform.eulerAngles.x + vel.x * speed * Time.deltaTime;
+            if (vel.z == 0f)
+                vel.z = Mathf.LerpAngle(transform.eulerAngles.z, 0f, Time.deltaTime * moveBackSpeed);
+            else
+                vel.z = transform.eulerAngles.z + vel.z * speed * Time.deltaTime;
+
+            transform.eulerAngles = vel;
+            
+            // Handle max rotation
+            var newAngles = transform.eulerAngles;
+            if (newAngles.x < 180f && newAngles.x > maxRotation) newAngles.x = maxRotation;
+            if (newAngles.x > 180f && newAngles.x < 360f - maxRotation) newAngles.x = 360f - maxRotation;
+            if (newAngles.z < 180f && newAngles.z > maxRotation) newAngles.z = maxRotation;
+            if (newAngles.z > 180f && newAngles.z < 360f - maxRotation) newAngles.z = 360f - maxRotation;
+
+            transform.eulerAngles = newAngles;
         }
     }
 }
