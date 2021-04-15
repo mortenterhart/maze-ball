@@ -4,25 +4,25 @@ namespace Common.Scripts.Player
 {
     public class BallComponent : MonoBehaviour
     {
-        Vector3 _initialPos;
-        Rigidbody _rb;
+        [SerializeField] private GameObject respawnPos;
+        
+        private Rigidbody _rb;
     
         // Start is called before the first frame update
-        void Start()
+        private void Start()
         {
             Events.Events.ObstacleTrigger += EventsOnObstacleTrigger;
-            _initialPos = transform.position;
             _rb = GetComponent<Rigidbody>();
         }
 
-        void EventsOnObstacleTrigger()
+        private void EventsOnObstacleTrigger()
         {
-            // Reset speed
+            // Reset player velocity and rotation
             _rb.velocity = Vector3.zero;
-            _rb.rotation = Quaternion.Euler(Vector3.zero);
+            _rb.rotation = Quaternion.identity;
             _rb.angularVelocity = Vector3.zero;
         
-            gameObject.transform.position = _initialPos;
+            gameObject.transform.position = respawnPos.transform.position;
         }
 
         void OnDestroy()

@@ -4,19 +4,19 @@ namespace Common.Scripts.Obstacles
 {
     public class TeleportHandler : MonoBehaviour
     {
-        [SerializeField] private Vector3 targetPos;
+        [SerializeField] private GameObject targetPos;
 
         private void OnTriggerEnter(Collider other)
         {
             if (!other.CompareTag("Player")) return;
 
-            // Reset speed
-            var rb = other.gameObject.GetComponent<Rigidbody>();
+            // Reset player velocity and rotation
+            var rb = other.GetComponent<Rigidbody>();
             rb.velocity = Vector3.zero;
             rb.rotation = Quaternion.identity;
             rb.angularVelocity = Vector3.zero;
 
-            other.gameObject.transform.position = targetPos;
+            other.transform.position = targetPos.transform.position;
         }
     }
 }
