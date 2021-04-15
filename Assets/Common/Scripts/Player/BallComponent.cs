@@ -21,8 +21,8 @@ namespace Common.Scripts.Player
             _rb.velocity = Vector3.zero;
             _rb.rotation = Quaternion.identity;
             _rb.angularVelocity = Vector3.zero;
-        
-            gameObject.transform.position = respawnPos.transform.position;
+
+            transform.position = respawnPos.transform.position;
         }
 
         void OnDestroy()
