@@ -1,13 +1,13 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class RotateSwitchTrigger : MonoBehaviour
+namespace Common.Scripts
 {
-    private void OnTriggerEnter(Collider other)
+    public class RotateSwitchTrigger : MonoBehaviour
     {
-        if (!other.CompareTag("Player")) return;
-        Events.OnRotateSwitchTriggered();
+        private void OnTriggerEnter(Collider other)
+        {
+            if (!other.CompareTag("Player")) return;
+            Events.OnRotateSwitchTriggered();
+        }
     }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Gerry.Scripts
+namespace Common.Scripts
 {
     public class RotateByInput : MonoBehaviour
     {

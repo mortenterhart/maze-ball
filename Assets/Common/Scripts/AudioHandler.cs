@@ -1,22 +1,26 @@
 using UnityEngine;
 
-public class AudioHandler : MonoBehaviour
+namespace Common.Scripts
 {
-    [SerializeField] private AudioSource collectableSfx;
-    
-    // Start is called before the first frame update
-    private void Start()
+    public class AudioHandler : MonoBehaviour
     {
-        Events.PlayCollectableSfx += EventsOnPlayCollectableSfx;
-    }
+        [SerializeField] private AudioSource collectableSfx;
+    
+        // Start is called before the first frame update
+        private void Start()
+        {
+            Events.PlayCollectableSfx += EventsOnPlayCollectableSfx;
+        }
 
-    private void EventsOnPlayCollectableSfx()
-    {
-        collectableSfx.Play();
-    }
+        private void EventsOnPlayCollectableSfx()
+        {
+            // Play sound effect without interruption
+            collectableSfx.PlayOneShot(collectableSfx.clip);
+        }
     
-    private void OnDestroy()
-    {
-        Events.PlayCollectableSfx -= EventsOnPlayCollectableSfx;
+        private void OnDestroy()
+        {
+            Events.PlayCollectableSfx -= EventsOnPlayCollectableSfx;
+        }
     }
 }

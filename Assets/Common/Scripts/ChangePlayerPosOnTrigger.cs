@@ -1,10 +1,10 @@
 using UnityEngine;
 
-namespace Gerry.Scripts
+namespace Common.Scripts
 {
     public class ChangePlayerPosOnTrigger : MonoBehaviour
     {
-        [SerializeField] private Vector3 resetPos;
+        [SerializeField] private GameObject targetPos;
 
         private void OnTriggerEnter(Collider other)
         {
@@ -16,7 +16,7 @@ namespace Gerry.Scripts
             rb.rotation = Quaternion.identity;
             rb.angularVelocity = Vector3.zero;
         
-            other.gameObject.transform.position = resetPos;
+            other.gameObject.transform.position = targetPos.transform.position;
         }
     }
 }
