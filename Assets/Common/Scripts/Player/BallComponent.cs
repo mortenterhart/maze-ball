@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Common.Scripts
+namespace Common.Scripts.Player
 {
     public class BallComponent : MonoBehaviour
     {
@@ -10,7 +10,7 @@ namespace Common.Scripts
         // Start is called before the first frame update
         void Start()
         {
-            Events.ObstacleTrigger += EventsOnObstacleTrigger;
+            Events.Events.ObstacleTrigger += EventsOnObstacleTrigger;
             _initialPos = transform.position;
             _rb = GetComponent<Rigidbody>();
         }
@@ -27,7 +27,7 @@ namespace Common.Scripts
 
         void OnDestroy()
         {
-            Events.ObstacleTrigger -= EventsOnObstacleTrigger;
+            Events.Events.ObstacleTrigger -= EventsOnObstacleTrigger;
         }
     }
 }

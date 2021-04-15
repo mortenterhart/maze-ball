@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Common.Scripts
+namespace Common.Scripts.Events
 { 
     /*
      * Can be used to create completely new events which can be invoked

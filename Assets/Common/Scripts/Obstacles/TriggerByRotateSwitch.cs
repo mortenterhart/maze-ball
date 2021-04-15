@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Common.Scripts
+namespace Common.Scripts.Obstacles
 {
     public class TriggerByRotateSwitch : MonoBehaviour
     {
@@ -25,8 +25,8 @@ namespace Common.Scripts
             _animator = GetComponent<Animator>();
             _initialRotation = transform.localEulerAngles;
         
-            Events.RotateSwitchTriggered += EventsOnRotateSwitchTriggered;
-            Events.ObstacleTrigger += EventsOnObstacleTrigger;
+            Events.Events.RotateSwitchTriggered += EventsOnRotateSwitchTriggered;
+            Events.Events.ObstacleTrigger += EventsOnObstacleTrigger;
         }
 
         void EventsOnObstacleTrigger()
@@ -67,8 +67,8 @@ namespace Common.Scripts
 
         private void OnDestroy()
         {
-            Events.RotateSwitchTriggered -= EventsOnRotateSwitchTriggered;
-            Events.ObstacleTrigger -= EventsOnObstacleTrigger;
+            Events.Events.RotateSwitchTriggered -= EventsOnRotateSwitchTriggered;
+            Events.Events.ObstacleTrigger -= EventsOnObstacleTrigger;
         }
     }
 }

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Common.Scripts
+namespace Common.Scripts.Collectable
 {
     public class CollectableTextHandler : MonoBehaviour
     {
@@ -11,7 +11,7 @@ namespace Common.Scripts
         // Start is called before the first frame update
         private void Start()
         {
-            Events.CollectableCollected += EventsOnCollectableCollected;
+            Events.Events.CollectableCollected += EventsOnCollectableCollected;
             _numberOfCollectablesText = GetComponent<Text>();
         }
 
@@ -23,7 +23,7 @@ namespace Common.Scripts
 
         private void OnDestroy()
         {
-            Events.CollectableCollected -= EventsOnCollectableCollected;
+            Events.Events.CollectableCollected -= EventsOnCollectableCollected;
         }
     }
 }

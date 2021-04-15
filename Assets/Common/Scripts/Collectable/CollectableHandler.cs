@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Common.Scripts
+namespace Common.Scripts.Collectable
 {
     public class CollectableHandler : MonoBehaviour
     {
@@ -27,8 +27,8 @@ namespace Common.Scripts
 
             var instance = Instantiate(particles, transform.position, Quaternion.identity);
             instance.transform.eulerAngles = Vector3.left * 90f;
-            Events.OnCollectableCollected();
-            Events.OnPlayCollectableSfx();
+            Events.Events.OnCollectableCollected();
+            Events.Events.OnPlayCollectableSfx();
             _animator.SetBool("destroy", true);
             _cc.enabled = false;
         }

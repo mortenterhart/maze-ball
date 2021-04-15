@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Common.Scripts
+namespace Common.Scripts.Obstacles
 {
     public class HoleComponent : MonoBehaviour
     {
@@ -8,7 +8,7 @@ namespace Common.Scripts
         {
             if (!other.CompareTag("Player")) return;
 
-            Events.OnObstacleTrigger();
+            Events.Events.OnObstacleTrigger();
         }
     }
 }

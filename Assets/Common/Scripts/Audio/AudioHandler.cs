@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Common.Scripts
+namespace Common.Scripts.Audio
 {
     public class AudioHandler : MonoBehaviour
     {
@@ -9,7 +9,7 @@ namespace Common.Scripts
         // Start is called before the first frame update
         private void Start()
         {
-            Events.PlayCollectableSfx += EventsOnPlayCollectableSfx;
+            Events.Events.PlayCollectableSfx += EventsOnPlayCollectableSfx;
         }
 
         private void EventsOnPlayCollectableSfx()
@@ -20,7 +20,7 @@ namespace Common.Scripts
     
         private void OnDestroy()
         {
-            Events.PlayCollectableSfx -= EventsOnPlayCollectableSfx;
+            Events.Events.PlayCollectableSfx -= EventsOnPlayCollectableSfx;
         }
     }
 }

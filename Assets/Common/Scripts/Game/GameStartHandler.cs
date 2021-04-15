@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Common.Scripts
+namespace Common.Scripts.Game
 {
     public class GameStartHandler : MonoBehaviour
     {

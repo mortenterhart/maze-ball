@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Common.Scripts
+namespace Common.Scripts.Obstacles
 {
     public class RedBlueButtonHandler : MonoBehaviour
     {
@@ -13,8 +13,8 @@ namespace Common.Scripts
         private void Start()
         {
             _renderer = GetComponent<MeshRenderer>();
-            Events.BlueButtonTriggered += EventsOnBlueButtonTriggered;
-            Events.RedButtonTriggered += EventsOnRedButtonTriggered;
+            Events.Events.BlueButtonTriggered += EventsOnBlueButtonTriggered;
+            Events.Events.RedButtonTriggered += EventsOnRedButtonTriggered;
             EventsOnRedButtonTriggered(); // Make sure that blue button is initially activated
         }
 
@@ -35,15 +35,15 @@ namespace Common.Scripts
             if (!other.CompareTag("Player")) return;
 
             if (_isBlue)
-                Events.OnBlueButtonTriggered();
+                Events.Events.OnBlueButtonTriggered();
             else
-                Events.OnRedButtonTriggered();
+                Events.Events.OnRedButtonTriggered();
         }
     
         private void OnDestroy()
         {
-            Events.BlueButtonTriggered -= EventsOnBlueButtonTriggered;
-            Events.RedButtonTriggered -= EventsOnRedButtonTriggered;
+            Events.Events.BlueButtonTriggered -= EventsOnBlueButtonTriggered;
+            Events.Events.RedButtonTriggered -= EventsOnRedButtonTriggered;
         }
     }
 }

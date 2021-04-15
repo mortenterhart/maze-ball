@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace Common.Scripts
+namespace Common.Scripts.Game
 {
     public class LevelFinishHandler : MonoBehaviour
     {
@@ -13,7 +13,7 @@ namespace Common.Scripts
         // Start is called before the first frame update
         private void Start()
         {
-            Events.LevelFinishInitiated += EventsOnLevelFinishInitiated;
+            Events.Events.LevelFinishInitiated += EventsOnLevelFinishInitiated;
         }
 
         private void EventsOnLevelFinishInitiated()
@@ -31,7 +31,7 @@ namespace Common.Scripts
 
         private void OnDestroy()
         {
-            Events.LevelFinishInitiated -= EventsOnLevelFinishInitiated;
+            Events.Events.LevelFinishInitiated -= EventsOnLevelFinishInitiated;
         }
     }
 }
