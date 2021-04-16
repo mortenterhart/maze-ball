@@ -1,22 +1,25 @@
-﻿name: Unity Build
+﻿name: Build Unity Project
 
 on: [push, pull_request]
 
 jobs:
+  # Build the game as WebGL and deploy
+  # to GitHub Pages
   buildWebGL:
     name: Build for ${{ matrix.targetPlatform }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
         targetPlatform:
-          - StandaloneWindows64
           - WebGL
 
     steps:
+      # Checkout project
       - uses: actions/checkout@v2
         with: 
           fetch-depth: 0
 
+      # Cache library files
       - uses: actions/cache@v2
         with:
           path: Library
@@ -24,16 +27,27 @@ jobs:
           restore-keys: |
             Library-MazeBall-
             Library-
-    
+
+      # Build project as WebGL
       - uses: game-ci/unity-builder@v2.0-alpha-6
-        name: Unity Builder
+        name: Build ${{ matrix.targetPlatform }}
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
           unityVersion: auto
           targetPlatform: ${{ matrix.targetPlatform }}
-          
+
+      # Upload build as artifact
       - uses: actions/upload-artifact@v2
         with:
           name: Build-${{ matrix.targetPlatform }}
           path: build/${{ matrix.targetPlatform }}
+
+      # Deploy build
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ matrix.targetPlatform == 'WebGL' }}
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: build/${{ matrix.targetPlatform }}
+          publish_branch: gh-pages
