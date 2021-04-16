@@ -972,6 +972,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleporter
       objectReference: {fileID: 0}
+    - target: {fileID: 3164865012995552126, guid: 81d7446807651b94ab4d6b5cd9700a18, type: 3}
+      propertyPath: targetPos
+      value: 
+      objectReference: {fileID: 29540645}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81d7446807651b94ab4d6b5cd9700a18, type: 3}
 --- !u!1001 &191838441
@@ -6566,6 +6570,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleporter (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3164865012995552126, guid: 81d7446807651b94ab4d6b5cd9700a18, type: 3}
+      propertyPath: targetPos
+      value: 
+      objectReference: {fileID: 29540645}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81d7446807651b94ab4d6b5cd9700a18, type: 3}
 --- !u!4 &1196803200 stripped
