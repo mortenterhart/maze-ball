@@ -49,5 +49,5 @@ jobs:
         if: ${{ matrix.targetPlatform == 'WebGL' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: build/${{ matrix.targetPlatform }}
+          publish_dir: build/${{ matrix.targetPlatform }}/${{ matrix.targetPlatform }}
           publish_branch: gh-pages
