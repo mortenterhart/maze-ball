@@ -1,11 +1,14 @@
 ﻿name: Cleanup old artifacts
 
 on:
+  # Allow the workflow to be triggered manually
+  workflow_dispatch:
+  # Schedule the workflow to run every night at 1 am UTC
   schedule:
-    - cron: '0 1 * * *'  # Cleanup every night at 1 am UTC
+    - cron: '0 1 * * *'
 
 jobs:
-  # Cleanup old artifacts after 2 days
+  # Cleanup old artifacts that are older than 1 day
   purge-artifacts:
     name: Purge artifacts
     runs-on: ubuntu-latest
@@ -13,5 +16,5 @@ jobs:
       - uses: kolpav/purge-artifacts-action@v1
         with: 
           token: ${{ secrets.GITHUB_TOKEN }}
-          expire-in: 2 days
+          expire-in: 1day
         
