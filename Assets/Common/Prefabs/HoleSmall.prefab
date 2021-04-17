@@ -11,6 +11,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: HoleSmall
       objectReference: {fileID: 0}
+    - target: {fileID: 6480646989560549342, guid: b8012a052d6f4ab4c912dc17faac1837, type: 3}
+      propertyPath: m_Height
+      value: 3.2664504
+      objectReference: {fileID: 0}
+    - target: {fileID: 6480646989560549342, guid: b8012a052d6f4ab4c912dc17faac1837, type: 3}
+      propertyPath: m_Center.x
+      value: 0.000000059604645
+      objectReference: {fileID: 0}
+    - target: {fileID: 6480646989560549342, guid: b8012a052d6f4ab4c912dc17faac1837, type: 3}
+      propertyPath: m_Center.y
+      value: 0.3843741
+      objectReference: {fileID: 0}
+    - target: {fileID: 6480646989560549342, guid: b8012a052d6f4ab4c912dc17faac1837, type: 3}
+      propertyPath: m_Center.z
+      value: -0.00000008940697
+      objectReference: {fileID: 0}
     - target: {fileID: 8417957508873605561, guid: b8012a052d6f4ab4c912dc17faac1837, type: 3}
       propertyPath: m_RootOrder
       value: 0
