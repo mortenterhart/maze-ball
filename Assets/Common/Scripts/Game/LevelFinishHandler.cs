@@ -8,7 +8,7 @@ namespace Common.Scripts.Game
     public class LevelFinishHandler : MonoBehaviour
     {
         [SerializeField] private Text levelFinishText;
-        [SerializeField] private int nextSceneIndex;
+        //[SerializeField] private int nextSceneIndex;
     
         // Start is called before the first frame update
         private void Start()
@@ -19,14 +19,14 @@ namespace Common.Scripts.Game
         private void EventsOnLevelFinishInitiated()
         {
             levelFinishText.gameObject.SetActive(true);
-            PlayerPrefs.SetInt("levelSave", nextSceneIndex);
+            PlayerPrefs.SetInt("levelSave", SceneManager.GetActiveScene().buildIndex + 1);
             StartCoroutine(FinishLevel());
         }
 
         private IEnumerator FinishLevel()
         {
             yield return new WaitForSeconds(1f);
-            SceneManager.LoadScene(nextSceneIndex);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
         private void OnDestroy()
