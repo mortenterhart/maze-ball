@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657832, g: 0.4964128, b: 0.5748155, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641258, b: 0.5748154, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3197,6 +3197,7 @@ RectTransform:
   - {fileID: 1677991357}
   - {fileID: 1376769019}
   - {fileID: 1333031519}
+  - {fileID: 1772894886}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8273,19 +8274,31 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 773709527}
     m_Modifications:
     - target: {fileID: 3103630734809175746, guid: 5bf92222d6a74be4e880d572f1229dc6, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3103630734809175746, guid: 5bf92222d6a74be4e880d572f1229dc6, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.6941025
+      objectReference: {fileID: 0}
+    - target: {fileID: 3103630734809175746, guid: 5bf92222d6a74be4e880d572f1229dc6, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6941025
+      objectReference: {fileID: 0}
+    - target: {fileID: 3103630734809175746, guid: 5bf92222d6a74be4e880d572f1229dc6, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.6941025
       objectReference: {fileID: 0}
     - target: {fileID: 3103630734809175746, guid: 5bf92222d6a74be4e880d572f1229dc6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -400
+      value: -725.53406
       objectReference: {fileID: 0}
     - target: {fileID: 3103630734809175746, guid: 5bf92222d6a74be4e880d572f1229dc6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -225.15991
+      value: -408.2685
       objectReference: {fileID: 0}
     - target: {fileID: 3103630734809175746, guid: 5bf92222d6a74be4e880d572f1229dc6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8325,6 +8338,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bf92222d6a74be4e880d572f1229dc6, type: 3}
+--- !u!4 &1772894886 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3103630734809175746, guid: 5bf92222d6a74be4e880d572f1229dc6, type: 3}
+  m_PrefabInstance: {fileID: 1772894885}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1813759231
 GameObject:
   m_ObjectHideFlags: 0
