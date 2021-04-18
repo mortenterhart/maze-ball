@@ -68,6 +68,18 @@ namespace Common.Scripts.Events
         {
             StopBgm?.Invoke();
         }
+        
+        public static event Action PauseBgm;
+        public static void OnPauseBgm()
+        {
+            PauseBgm?.Invoke();
+        }
+        
+        public static event Action PlayBgm;
+        public static void OnPlayBgm()
+        {
+            PlayBgm?.Invoke();
+        }
 
         public static event Action RotateSwitchTriggered;
         public static void OnRotateSwitchTriggered()

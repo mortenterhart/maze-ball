@@ -11,6 +11,7 @@ namespace Common.Scripts.Audio
         [SerializeField] private AudioSource rotateButtonSfx;
         [SerializeField] private AudioSource redBlueButtonSfx;
         [SerializeField] private AudioSource bgm;
+        float _bgmPlaytime;
     
         // Start is called before the first frame update
         private void Start()
@@ -22,6 +23,19 @@ namespace Common.Scripts.Audio
             Events.Events.PlayRotateButtonSfx += EventsOnPlayRotateButtonSfx;
             Events.Events.PlayRedBlueButtonSfx += EventsOnPlayRedBlueButtonSfx;
             Events.Events.StopBgm += EventsOnStopBgm;
+            Events.Events.PauseBgm += EventsOnPauseBgm;
+            Events.Events.PlayBgm += EventsOnPlayBgm;
+        }
+
+        void EventsOnPlayBgm()
+        {
+            bgm.UnPause();
+        }
+
+        void EventsOnPauseBgm()
+        {
+            //_bgmPlaytime = bgm.time;
+            bgm.Pause();
         }
 
         void EventsOnStopBgm()
