@@ -17,6 +17,7 @@ namespace Common.Scripts.Obstacles
             rb.angularVelocity = Vector3.zero;
 
             other.transform.position = targetPos.transform.position;
+            Events.Events.OnPlayTeleportSfx();
         }
     }
 }

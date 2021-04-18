@@ -9,6 +9,7 @@ namespace Common.Scripts.Obstacles
             if (!other.CompareTag("Player")) return;
 
             Events.Events.OnObstacleTrigger();
+            Events.Events.OnPlayFallSfx();
         }
     }
 }

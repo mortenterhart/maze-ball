@@ -44,12 +44,14 @@ namespace Common.Scripts.Obstacles
                 Events.Events.OnBlueButtonTriggered();
             else
                 Events.Events.OnRedButtonTriggered();
+            Events.Events.OnPlayRedBlueButtonSfx();
         }
     
         private void OnDestroy()
         {
             Events.Events.BlueButtonTriggered -= EventsOnBlueButtonTriggered;
             Events.Events.RedButtonTriggered -= EventsOnRedButtonTriggered;
+            Events.Events.ObstacleTrigger -= EventsOnObstacleTrigger;
         }
     }
 }

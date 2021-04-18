@@ -27,10 +27,46 @@ namespace Common.Scripts.Events
             CollectableCollected?.Invoke();
         }
 
+        public static event Action PlayRotateButtonSfx;
+        public static void OnPlayRotateButtonSfx()
+        {
+            PlayRotateButtonSfx?.Invoke();
+        }
+        
         public static event Action PlayCollectableSfx;
         public static void OnPlayCollectableSfx()
         {
             PlayCollectableSfx?.Invoke();
+        }
+        
+        public static event Action PlayTeleportSfx;
+        public static void OnPlayTeleportSfx()
+        {
+            PlayTeleportSfx?.Invoke();
+        }
+        
+        public static event Action PlayFallSfx;
+        public static void OnPlayFallSfx()
+        {
+            PlayFallSfx?.Invoke();
+        }
+        
+        public static event Action PlayLevelFinishSfx;
+        public static void OnPlayLevelFinishSfx()
+        {
+            PlayLevelFinishSfx?.Invoke();
+        }
+        
+        public static event Action PlayRedBlueButtonSfx;
+        public static void OnPlayRedBlueButtonSfx()
+        {
+            PlayRedBlueButtonSfx?.Invoke();
+        }
+        
+        public static event Action StopBgm;
+        public static void OnStopBgm()
+        {
+            StopBgm?.Invoke();
         }
 
         public static event Action RotateSwitchTriggered;

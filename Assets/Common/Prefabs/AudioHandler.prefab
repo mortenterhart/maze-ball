@@ -44,3 +44,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectableSfx: {fileID: 0}
+  fallSfx: {fileID: 0}
+  teleportSfx: {fileID: 0}
+  levelFinishSfx: {fileID: 0}
+  rotateButtonSfx: {fileID: 0}
+  redBlueButtonSfx: {fileID: 0}
+  bgm: {fileID: 0}

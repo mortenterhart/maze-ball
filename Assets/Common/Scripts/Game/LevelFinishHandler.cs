@@ -19,13 +19,15 @@ namespace Common.Scripts.Game
         private void EventsOnLevelFinishInitiated()
         {
             levelFinishText.gameObject.SetActive(true);
+            Events.Events.OnStopBgm();
+            Events.Events.OnPlayLevelFinishSfx();
             PlayerPrefs.SetInt("levelSave", SceneManager.GetActiveScene().buildIndex + 1);
             StartCoroutine(FinishLevel());
         }
 
         private IEnumerator FinishLevel()
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(5f);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
