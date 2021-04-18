@@ -12,14 +12,17 @@ EditorBuildSettings:
     path: Assets/Common/Scenes/Tutorial.unity
     guid: 092db0710e3767644818886a3f3ebfc2
   - enabled: 1
+    path: Assets/Gerry/Scenes/Level 1 - Easy.unity
+    guid: 74daf39611a2c504c8be5caf76bd903e
+  - enabled: 1
     path: Assets/Jannis/Lvl/Easy.unity
     guid: bf8de5fdacc80b146980f288ae3cc01c
   - enabled: 1
     path: Assets/Morten/Scenes/Level 1 Easy.unity
     guid: af3f5da9c20ce83448112dde88452af6
   - enabled: 1
-    path: Assets/Gerry/Scenes/Level 1 - Easy.unity
-    guid: 74daf39611a2c504c8be5caf76bd903e
+    path: Assets/Common/Scenes/GameEnd.unity
+    guid: 2319e1fce677dd04a99a69fd0619352d
   - enabled: 1
     path: Assets/Jannis/Lvl/Medium.unity
     guid: 21f32eef0553e234eba66f8815fa3560
@@ -38,7 +41,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Morten/Scenes/Level 3 Hard.unity
     guid: 316ff843042d7bf4da1b41da18f67aac
-  - enabled: 1
-    path: Assets/Common/Scenes/GameEnd.unity
-    guid: 2319e1fce677dd04a99a69fd0619352d
   m_configObjects: {}

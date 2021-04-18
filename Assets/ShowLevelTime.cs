@@ -13,16 +13,7 @@ public class ShowLevelTime : MonoBehaviour
     {
         _timeText = GetComponent<Text>();
         var time = PlayerPrefs.GetFloat("timeForLvl" + sceneIndex);
-        
-        var milliSeconds = (int) (time * 100f);
-        var seconds = (int) time;
-        var minutes = (int) (time / 60);
-        milliSeconds %= 100;
-        seconds %= 60;
-        var milliSecondsStr = milliSeconds.ToString("00");
-        var secondsStr = seconds.ToString("00");
-        var minutesStr = minutes.ToString("00");
-        _timeText.text = $"{minutesStr}:{secondsStr}:{milliSecondsStr}";
+        _timeText.text = TimerHelper.TimeFloatToText(time);
     }
 
     // Update is called once per frame
