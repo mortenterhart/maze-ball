@@ -41,7 +41,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: Build-${{ matrix.targetPlatform }}
-          path: build/${{ matrix.targetPlatform }}
+          path: build/${{ matrix.targetPlatform }}/${{ matrix.targetPlatform }}
 
       # Deploy build
       - name: Deploy to GitHub Pages
