@@ -63,7 +63,7 @@ public class AudioHandler : MonoBehaviour
 
     void EventsOnPlayFallSfx()
     {
-        fallSfx.PlayOneShot(fallSfx.clip);
+        fallSfx.PlayOneShot(fallSfx.clip, 0.4f);
     }
 
     private void EventsOnPlayCollectableSfx()
