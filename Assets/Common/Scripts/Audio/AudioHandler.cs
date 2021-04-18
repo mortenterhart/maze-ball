@@ -9,7 +9,6 @@ public class AudioHandler : MonoBehaviour
     [SerializeField] private AudioSource rotateButtonSfx;
     [SerializeField] private AudioSource redBlueButtonSfx;
     [SerializeField] private AudioSource bgm;
-    float _bgmPlaytime;
 
     // Start is called before the first frame update
     private void Start()
