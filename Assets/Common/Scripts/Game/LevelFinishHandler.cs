@@ -3,37 +3,34 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace Common.Scripts.Game
+public class LevelFinishHandler : MonoBehaviour
 {
-    public class LevelFinishHandler : MonoBehaviour
+    [SerializeField] private Text levelFinishText;
+    //[SerializeField] private int nextSceneIndex;
+
+    // Start is called before the first frame update
+    private void Start()
     {
-        [SerializeField] private Text levelFinishText;
-        //[SerializeField] private int nextSceneIndex;
-    
-        // Start is called before the first frame update
-        private void Start()
-        {
-            Events.Events.LevelFinishInitiated += EventsOnLevelFinishInitiated;
-        }
+        Events.LevelFinishInitiated += EventsOnLevelFinishInitiated;
+    }
 
-        private void EventsOnLevelFinishInitiated()
-        {
-            levelFinishText.gameObject.SetActive(true);
-            Events.Events.OnStopBgm();
-            Events.Events.OnPlayLevelFinishSfx();
-            PlayerPrefs.SetInt("levelSave", SceneManager.GetActiveScene().buildIndex + 1);
-            StartCoroutine(FinishLevel());
-        }
+    private void EventsOnLevelFinishInitiated()
+    {
+        levelFinishText.gameObject.SetActive(true);
+        Events.OnStopBgm();
+        Events.OnPlayLevelFinishSfx();
+        PlayerPrefs.SetInt("levelSave", SceneManager.GetActiveScene().buildIndex + 1);
+        StartCoroutine(FinishLevel());
+    }
 
-        private IEnumerator FinishLevel()
-        {
-            yield return new WaitForSeconds(5f);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
+    private IEnumerator FinishLevel()
+    {
+        yield return new WaitForSeconds(5f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 
-        private void OnDestroy()
-        {
-            Events.Events.LevelFinishInitiated -= EventsOnLevelFinishInitiated;
-        }
+    private void OnDestroy()
+    {
+        Events.LevelFinishInitiated -= EventsOnLevelFinishInitiated;
     }
 }

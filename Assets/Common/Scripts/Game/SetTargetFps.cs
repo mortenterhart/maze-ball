@@ -1,14 +1,12 @@
 using UnityEngine;
 
-namespace Common.Scripts.Game
+public class SetTargetFps : MonoBehaviour
 {
-    public class SetTargetFps : MonoBehaviour
+    [SerializeField] private int targetFps;
+
+    private void Start()
     {
-        [SerializeField] private int targetFps;
-    
-        private void Start()
-        {
-            Application.targetFrameRate = targetFps;
-        }
+        Application.targetFrameRate = targetFps;
     }
 }
+

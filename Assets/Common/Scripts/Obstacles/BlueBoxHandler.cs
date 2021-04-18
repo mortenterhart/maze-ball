@@ -1,48 +1,45 @@
 using UnityEngine;
 
-namespace Common.Scripts.Obstacles
+public class BlueBoxHandler : MonoBehaviour
 {
-    public class BlueBoxHandler : MonoBehaviour
+    private Animator _animator;
+    private Collider _collider;
+
+    // Start is called before the first frame update
+    private void Start()
     {
-        private Animator _animator;
-        private Collider _collider;
-    
-        // Start is called before the first frame update
-        private void Start()
-        {
-            Events.Events.BlueButtonTriggered += EventsOnBlueButtonTriggered;
-            Events.Events.RedButtonTriggered += EventsOnRedButtonTriggered;
-            Events.Events.ObstacleTrigger += EventsOnObstacleTrigger;
-            _animator = GetComponent<Animator>();
-            _collider = GetComponent<Collider>();
-        }
+        Events.BlueButtonTriggered += EventsOnBlueButtonTriggered;
+        Events.RedButtonTriggered += EventsOnRedButtonTriggered;
+        Events.ObstacleTrigger += EventsOnObstacleTrigger;
+        _animator = GetComponent<Animator>();
+        _collider = GetComponent<Collider>();
+    }
 
-        void EventsOnObstacleTrigger()
-        {
-            transform.localScale = Vector3.one;
-            _animator.SetBool("active", true);
-            _collider.enabled = true;
-        }
+    void EventsOnObstacleTrigger()
+    {
+        transform.localScale = Vector3.one;
+        _animator.SetBool("active", true);
+        _collider.enabled = true;
+    }
 
-        private void EventsOnRedButtonTriggered()
-        {
-            _animator.SetTrigger("start");
-            _animator.SetBool("active", true);
-            _collider.enabled = true;
-        }
+    private void EventsOnRedButtonTriggered()
+    {
+        _animator.SetTrigger("start");
+        _animator.SetBool("active", true);
+        _collider.enabled = true;
+    }
 
-        private void EventsOnBlueButtonTriggered()
-        {
-            _animator.SetTrigger("start");
-            _animator.SetBool("active", false);
-            _collider.enabled = false;
-        }
-    
-        private void OnDestroy()
-        {
-            Events.Events.BlueButtonTriggered -= EventsOnBlueButtonTriggered;
-            Events.Events.RedButtonTriggered -= EventsOnRedButtonTriggered;
-            Events.Events.ObstacleTrigger -= EventsOnObstacleTrigger;
-        }
+    private void EventsOnBlueButtonTriggered()
+    {
+        _animator.SetTrigger("start");
+        _animator.SetBool("active", false);
+        _collider.enabled = false;
+    }
+
+    private void OnDestroy()
+    {
+        Events.BlueButtonTriggered -= EventsOnBlueButtonTriggered;
+        Events.RedButtonTriggered -= EventsOnRedButtonTriggered;
+        Events.ObstacleTrigger -= EventsOnObstacleTrigger;
     }
 }

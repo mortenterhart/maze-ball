@@ -1,15 +1,13 @@
 using UnityEngine;
 
-namespace Common.Scripts.Obstacles
+public class HoleComponent : MonoBehaviour
 {
-    public class HoleComponent : MonoBehaviour
+    private void OnTriggerEnter(Collider other)
     {
-        private void OnTriggerEnter(Collider other)
-        {
-            if (!other.CompareTag("Player")) return;
+        if (!other.CompareTag("Player")) return;
 
-            Events.Events.OnObstacleTrigger();
-            Events.Events.OnPlayFallSfx();
-        }
+        Events.OnObstacleTrigger();
+        Events.OnPlayFallSfx();
     }
 }
+

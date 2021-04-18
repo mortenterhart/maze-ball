@@ -1,38 +1,36 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Common.Scripts.Game
+public class MainMenuHandler : MonoBehaviour
 {
-    public class MainMenuHandler : MonoBehaviour
+    [SerializeField] private int level1SceneIndex;
+    [SerializeField] private int mainMenuSceneIndex;
+
+    // Start is called before the first frame update
+    void Start()
     {
-        [SerializeField] private int level1SceneIndex;
-        [SerializeField] private int mainMenuSceneIndex;
     
-        // Start is called before the first frame update
-        void Start()
-        {
-        
-        }
+    }
+
+    void Update()
+    {
     
-        void Update()
-        {
-        
-        }
+    }
 
-        public void OnNewGame()
-        {
-            PlayerPrefs.SetInt("levelSave", 0);
-            SceneManager.LoadScene(level1SceneIndex);
-        }
+    public void OnNewGame()
+    {
+        PlayerPrefs.SetInt("levelSave", 0);
+        SceneManager.LoadScene(level1SceneIndex);
+    }
 
-        public void OnContinue()
-        {
-            SceneManager.LoadScene(PlayerPrefs.GetInt("levelSave"));
-        }
+    public void OnContinue()
+    {
+        SceneManager.LoadScene(PlayerPrefs.GetInt("levelSave"));
+    }
 
-        public void OnBackToMainMenu()
-        {
-            SceneManager.LoadScene(mainMenuSceneIndex);
-        }
+    public void OnBackToMainMenu()
+    {
+        SceneManager.LoadScene(mainMenuSceneIndex);
     }
 }
+
