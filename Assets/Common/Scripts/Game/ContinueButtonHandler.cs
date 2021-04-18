@@ -9,11 +9,5 @@ public class ContinueButtonHandler : MonoBehaviour
         if (PlayerPrefs.GetInt("levelSave") == 0)
             GetComponent<Button>().interactable = false;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-    
-    }
 }
 
