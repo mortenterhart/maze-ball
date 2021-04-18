@@ -25,6 +25,7 @@ public class Timer : MonoBehaviour
         if (_timer < highScore || highScore < 0)
         {
             PlayerPrefs.SetFloat(levelKey, _timer);
+            Events.OnNewHighScore();
         }
     }
 
