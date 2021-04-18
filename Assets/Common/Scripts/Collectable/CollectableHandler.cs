@@ -25,14 +25,12 @@ namespace Common.Scripts.Collectable
         {
             if (!other.CompareTag("Player")) return;
 
-            var instance = Instantiate(particles, transform.position, Quaternion.identity);
-            instance.transform.eulerAngles = Vector3.left * 90f;
-            Events.OnCollectableCollected();
-            Events.OnPlayCollectableSfx();
-            transform.SetParent(transform.parent.transform.parent);
-            _animator.SetBool("destroy", true);
-            _cc.enabled = false;
-        }
+        var instance = Instantiate(particles, transform.position, Quaternion.identity);
+        instance.transform.eulerAngles = Vector3.left * 90f;
+        Events.OnCollectableCollected();
+        Events.OnPlayCollectableSfx();
+        transform.SetParent(transform.parent.transform.parent);
+        _animator.SetBool("destroy", true);
+        _cc.enabled = false;
     }
 }
-
