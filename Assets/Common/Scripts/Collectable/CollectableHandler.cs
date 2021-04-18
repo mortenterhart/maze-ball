@@ -29,6 +29,7 @@ namespace Common.Scripts.Collectable
             instance.transform.eulerAngles = Vector3.left * 90f;
             Events.Events.OnCollectableCollected();
             Events.Events.OnPlayCollectableSfx();
+            transform.SetParent(transform.parent.transform.parent);
             _animator.SetBool("destroy", true);
             _cc.enabled = false;
         }

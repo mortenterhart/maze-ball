@@ -32,6 +32,7 @@ namespace Common.Scripts.Game
 
         public void OnBackToMainMenu()
         {
+            Time.timeScale = 1f;
             SceneManager.LoadScene(mainMenuSceneIndex);
         }
     }
