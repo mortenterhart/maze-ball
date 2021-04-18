@@ -4,7 +4,6 @@ public class PauseMenuComponent : MonoBehaviour
 {
     [SerializeField] GameObject pauseMenuObj;
     bool _pauseActive;
-    bool _buttonDown;
 
     // Start is called before the first frame update
     void Start()
@@ -14,30 +13,22 @@ public class PauseMenuComponent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetAxisRaw("Pause") > 0f)
+        if (Input.GetButtonDown("Pause"))
         {
-            if (!_buttonDown)
+            if (_pauseActive)
             {
-                _buttonDown = true;
-                if (_pauseActive)
-                {
-                    _pauseActive = false;
-                    pauseMenuObj.SetActive(false);
-                    Time.timeScale = 1f;
-                    Events.OnPlayBgm();
-                }
-                else
-                {
-                    _pauseActive = true;
-                    pauseMenuObj.SetActive(true);
-                    Time.timeScale = 0f;
-                    Events.OnPauseBgm();
-                }
+                _pauseActive = false;
+                pauseMenuObj.SetActive(false);
+                Time.timeScale = 1f;
+                Events.OnPlayBgm();
             }
-        }
-        else
-        {
-            _buttonDown = false;
+            else
+            {
+                _pauseActive = true;
+                pauseMenuObj.SetActive(true);
+                Time.timeScale = 0f;
+                Events.OnPauseBgm();
+            }
         }
     }
 }
