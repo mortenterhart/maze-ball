@@ -80,7 +80,9 @@ public class AudioHandler : MonoBehaviour
         Events.PlayLevelFinishSfx -= EventsOnPlayLevelFinishSfx;
         Events.PlayRotateButtonSfx -= EventsOnPlayRotateButtonSfx;
         Events.PlayRedBlueButtonSfx -= EventsOnPlayRedBlueButtonSfx;
-        Events.StopBgm -= EventsOnStopBgm;
+        Events.StopBgm -= EventsOnStopBgm; 
+        Events.PauseBgm -= EventsOnPauseBgm;
+        Events.PlayBgm -= EventsOnPlayBgm;
     }
 }
 
