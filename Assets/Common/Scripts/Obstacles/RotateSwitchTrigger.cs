@@ -1,14 +1,12 @@
 using UnityEngine;
 
-namespace Common.Scripts.Obstacles
+public class RotateSwitchTrigger : MonoBehaviour
 {
-    public class RotateSwitchTrigger : MonoBehaviour
+    private void OnTriggerEnter(Collider other)
     {
-        private void OnTriggerEnter(Collider other)
-        {
-            if (!other.CompareTag("Player")) return;
-            Events.Events.OnRotateSwitchTriggered();
-            Events.Events.OnPlayRotateButtonSfx();
-        }
+        if (!other.CompareTag("Player")) return;
+        Events.OnRotateSwitchTriggered();
+        Events.OnPlayRotateButtonSfx();
     }
 }
+

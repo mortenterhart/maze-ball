@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Common.Scripts.Events;
 using UnityEngine;
 
 public class PauseMenuComponent : MonoBehaviour
@@ -12,7 +9,6 @@ public class PauseMenuComponent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
