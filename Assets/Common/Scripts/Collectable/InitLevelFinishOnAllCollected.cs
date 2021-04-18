@@ -2,13 +2,24 @@ using UnityEngine;
 
 public class InitLevelFinishOnAllCollected : MonoBehaviour
 {
+    private int _totalNumberOfCollectables;
+    private bool _hasSetTotalNumber;
+    
     // Start is called before the first frame update
     private void Start()
     {
         Events.CollectableCollected += EventsOnCollectableCollected;
 
         // Set total number of collectables in CollectableTextHandler
-        Events.OnSetTotalNumberOfCollectables(transform.childCount);
+        _totalNumberOfCollectables = transform.childCount;
+    }
+
+    private void Update()
+    {
+        if (_hasSetTotalNumber) return;
+
+        Events.OnSetTotalNumberOfCollectables(_totalNumberOfCollectables);
+        _hasSetTotalNumber = true;
     }
 
     private void EventsOnCollectableCollected()

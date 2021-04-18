@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class LevelFinishHandler : MonoBehaviour
 {
     [SerializeField] private Text levelFinishText;
-    //[SerializeField] private int nextSceneIndex;
 
     // Start is called before the first frame update
     private void Start()
