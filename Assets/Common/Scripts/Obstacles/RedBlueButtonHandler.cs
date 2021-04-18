@@ -15,7 +15,13 @@ namespace Common.Scripts.Obstacles
             _renderer = GetComponent<MeshRenderer>();
             Events.Events.BlueButtonTriggered += EventsOnBlueButtonTriggered;
             Events.Events.RedButtonTriggered += EventsOnRedButtonTriggered;
+            Events.Events.ObstacleTrigger += EventsOnObstacleTrigger;
             EventsOnRedButtonTriggered(); // Make sure that blue button is initially activated
+        }
+
+        void EventsOnObstacleTrigger()
+        {
+            EventsOnRedButtonTriggered();
         }
 
         private void EventsOnRedButtonTriggered()

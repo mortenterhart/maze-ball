@@ -12,8 +12,16 @@ namespace Common.Scripts.Obstacles
         {
             Events.Events.BlueButtonTriggered += EventsOnBlueButtonTriggered;
             Events.Events.RedButtonTriggered += EventsOnRedButtonTriggered;
+            Events.Events.ObstacleTrigger += EventsOnObstacleTrigger;
             _animator = GetComponent<Animator>();
             _collider = GetComponent<Collider>();
+        }
+
+        void EventsOnObstacleTrigger()
+        {
+            transform.localScale = Vector3.zero;
+            _animator.SetBool("active", false);
+            _collider.enabled = false;
         }
 
         private void EventsOnRedButtonTriggered()
@@ -34,6 +42,7 @@ namespace Common.Scripts.Obstacles
         {
             Events.Events.BlueButtonTriggered -= EventsOnBlueButtonTriggered;
             Events.Events.RedButtonTriggered -= EventsOnRedButtonTriggered;
+            Events.Events.ObstacleTrigger -= EventsOnObstacleTrigger;
         }
     }
 }
