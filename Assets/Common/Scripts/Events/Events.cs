@@ -33,6 +33,13 @@ public class Events : MonoBehaviour
         SetTotalNumberOfCollectables?.Invoke(totalNumberOfCollectables);
     }
 
+    public static event Action NewHighScore;
+
+    public static void OnNewHighScore()
+    {
+        NewHighScore?.Invoke();
+    }
+
     public static event Action PlayRotateButtonSfx;
     public static void OnPlayRotateButtonSfx()
     {

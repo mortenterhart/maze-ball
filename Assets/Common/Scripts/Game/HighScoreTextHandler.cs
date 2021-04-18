@@ -8,14 +8,14 @@ public class HighScoreTextHandler : MonoBehaviour
     
     private void Start()
     {
-        Events.LevelFinishInitiated += EventsOnLevelFinishInitiated;
+        Events.NewHighScore += EventsOnNewHighScore;
 
         _highScoreText = GetComponent<Text>();
         
         UpdateHighScoreText();
     }
     
-    private void EventsOnLevelFinishInitiated()
+    private void EventsOnNewHighScore()
     {
         UpdateHighScoreText();
     }
@@ -28,7 +28,7 @@ public class HighScoreTextHandler : MonoBehaviour
     
     private void OnDestroy()
     {
-        Events.LevelFinishInitiated -= EventsOnLevelFinishInitiated;
+        Events.NewHighScore -= EventsOnNewHighScore;
     }
 }
         
