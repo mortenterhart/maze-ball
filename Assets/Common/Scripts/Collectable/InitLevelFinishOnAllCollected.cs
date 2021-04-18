@@ -6,6 +6,9 @@ public class InitLevelFinishOnAllCollected : MonoBehaviour
     private void Start()
     {
         Events.CollectableCollected += EventsOnCollectableCollected;
+
+        // Set total number of collectables in CollectableTextHandler
+        Events.OnSetTotalNumberOfCollectables(transform.childCount);
     }
 
     private void EventsOnCollectableCollected()
@@ -13,12 +16,6 @@ public class InitLevelFinishOnAllCollected : MonoBehaviour
         if (transform.childCount == 1)
             // Only 1 Collectable object should exist which runs its destroy animation
             Events.OnLevelFinishInitiated();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-    
     }
 
     private void OnDestroy()

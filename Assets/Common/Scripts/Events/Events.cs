@@ -25,6 +25,14 @@ public class Events : MonoBehaviour
         CollectableCollected?.Invoke();
     }
 
+    public delegate void SetIntEvent(int value);
+    public static event SetIntEvent SetTotalNumberOfCollectables;
+
+    public static void OnSetTotalNumberOfCollectables(int totalNumberOfCollectables)
+    {
+        SetTotalNumberOfCollectables?.Invoke(totalNumberOfCollectables);
+    }
+
     public static event Action PlayRotateButtonSfx;
     public static void OnPlayRotateButtonSfx()
     {
