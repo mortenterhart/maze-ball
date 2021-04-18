@@ -28,11 +28,11 @@ public class MainMenuHandler : MonoBehaviour
         SceneManager.LoadScene(PlayerPrefs.GetInt("levelSave"));
     }
 
-        public void OnBackToMainMenu()
-        {
-            Time.timeScale = 1f;
-            SceneManager.LoadScene(mainMenuSceneIndex);
-        }
+    public void OnBackToMainMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(mainMenuSceneIndex);
     }
 }
+
 
